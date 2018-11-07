@@ -5,9 +5,26 @@ import './App.css';
 
 class App extends Component {
     render() {
+        const profile = {
+            display: 'flex',
+            width: '100%',
+            alignItems: 'center',
+            border: 'none',
+            justifyContent: 'space-between',
+        }
+
+        const side = {
+            width: '100%',
+            padding: '15px'
+        }
         return (
-            <div className="App">
-                <From name="John" surname="Dou"/>
+            <div className="profile-app" style={profile}>
+                <div style={side}>
+                    <From name="John" surname="Dou"/>
+                </div>
+                <div style={side}>
+                    Profile
+                </div>
             </div>
         );
     }

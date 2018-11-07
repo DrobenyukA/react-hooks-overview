@@ -1,12 +1,26 @@
 import React, { useState } from 'react';
 
+function useFormInput(initialValue) {
+    const [value, setValue] = useState(initialValue);
+
+    function onChange(e) {
+        setValue(e.target.value)
+    }
+
+    return {
+        value,
+        onChange
+    }
+}
+
 const Form = (props) => {
-    const [name, setName] = useState(props.name);
-    const [surname, setSurname] = useState(props.surname)
+    const name = useFormInput(props.name);
+    const surname = useFormInput(props.surname)
     return (
         <div>
-            <input name="name" type="text" value={name} onChange={(e) => setName(e.target.value)} />
-            <input name="surname" type="text" value={surname} onChange={(e) => setSurname(e.target.value)} />
+            <input name="name" type="text" {...name} />
+            <br/>
+            <input name="surname" type="text" {...surname} />
         </div>
     )
 }
