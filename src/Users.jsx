@@ -9,10 +9,10 @@ function fetchUsers(setUsers) {
     }
 }
 
-function Users() {
+function Users({ onUserSelect }) {
     const [users, setUsers] = useState(null);
     // [] = means lunch hook only once
-    useEffect(fetchUsers(setUsers), [])
+    useEffect(fetchUsers(setUsers), []);
 
     return (
         <div className="users list-group mt-3">
@@ -24,11 +24,12 @@ function Users() {
                     Loading...
                 </div>
             )}
-            {(users && users.length) && (users.map((user, i) => (
+            {(users && users.length) && (users.map(user => (
                 <button
                     key={user.id}
                     style={{ cursor: 'pointer' }}
                     className="list-group-item list-group-item-action"
+                    onClick={() => onUserSelect(user)}
                 >
                     {user.name}
                 </button>
