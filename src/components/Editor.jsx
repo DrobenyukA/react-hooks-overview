@@ -51,6 +51,7 @@ const Form = (props) => {
                 <input id="surname" className="form-control" name="surname" type="text" {...surname} />
             </div>
             <button className="btn btn-primary" onClick={() => props.onUpdate({
+                ...props.user,
                 name: name.value + " " + surname.value 
             })}>Save user</button>
         </div>

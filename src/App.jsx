@@ -13,7 +13,6 @@ function App () {
 
     // [] = means lunch hook only once
     useEffect(fetchUsers(userAction.store(dispatch)), []);
-    console.log('users', users)
     return (
         <div className="profile-app container">
             <div className="row align-items-center">
